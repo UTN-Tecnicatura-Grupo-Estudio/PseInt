@@ -8,7 +8,8 @@ def main():
     dato3 = input("Ingrese dato3: ")
     dato4 = input("Ingrese dato4: ")
     dato5 = input("Ingrese dato5: ")
-    sumar(dato1, dato2, dato3, dato4, dato5)
+    total = sumar(dato1, dato2, dato3, dato4, dato5)
+    return f"El resultado es: {total} "
 
 
 # Podría hacerse con sys.argv 
