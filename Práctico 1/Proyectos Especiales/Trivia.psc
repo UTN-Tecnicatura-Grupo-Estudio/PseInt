@@ -76,29 +76,37 @@ SubProceso dif (dificultad Por Referencia)
 	Hasta Que opcion > 0 y opcion < 3
 FinSubProceso
 
-// 2: Llenado Manual de las preguntas
+
 SubProceso importar_preguntas(preguntas Por Referencia)
+	// Llenado Manual de las preguntas
+	
 	// Importar desde el Excel generador de variables
 	// https://docs.google.com/spreadsheets/d/1icO6GJE6JdbYCTM0qP9i3GnKGf0uGKFoxwS3ORUP18s
 	// OJO! Especificar numero de las respuestas
 	// La ultima columna muestra la respuesta correcta
 	preguntas[0,0] <- 'CATEGORÍA: GEOGRAFÍA ¿De qué país forma parte Hawaii?';	preguntas[0,1] <- '[1] Estados Unidos';	preguntas[0,2] <- '[2] Argentina';	preguntas[0,3] <- '[3] Brasil';	preguntas[0,4] <- '[4] Ecuador';	preguntas[0,5] <- '1';
-	preguntas[1,0] <- 'CATEGORÍA: GEOGRAFÍA ¿Cuántos estados tiene integrados Estados Unidos?';	preguntas[1,1] <- '49';	preguntas[1,2] <- '15';	preguntas[1,3] <- '50';	preguntas[1,4] <- '180';	preguntas[1,5] <- '3';
-	preguntas[2,0] <- 'CATEGORÍA: GEOGRAFÍA ¿De qué año es la Constitución Española?';	preguntas[2,1] <- '1999';	preguntas[2,2] <- '1978';	preguntas[2,3] <- '1979';	preguntas[2,4] <- '1845';	preguntas[2,5] <- '2';
-	preguntas[3,0] <- 'CATEGORÍA: GEOGRAFÍA ¿Cuál es el río más largo de España?';	preguntas[3,1] <- 'El río Elbro';	preguntas[3,2] <- 'Opción 2';	preguntas[3,3] <- 'Opción 3';	preguntas[3,4] <- 'Opción 4';	preguntas[3,5] <- '1';
-	preguntas[4,0] <- 'CATEGORÍA: GEOGRAFÍA ¿Cuál es el océano más grande del mundo?';	preguntas[4,1] <- 'El océano Atlántico';	preguntas[4,2] <- 'El océano Pacífico';	preguntas[4,3] <- 'El océano Índico';	preguntas[4,4] <- 'El océano Ártico';	preguntas[4,5] <- '2';
+	preguntas[1,0] <- 'CATEGORÍA: GEOGRAFÍA ¿Cuántos estados tiene integrados Estados Unidos?';	preguntas[1,1] <- '[1] 49';	preguntas[1,2] <- '[2] 15';	preguntas[1,3] <- '[3] 50';	preguntas[1,4] <- '[4] 180';	preguntas[1,5] <- '3';
+	preguntas[2,0] <- 'CATEGORÍA: GEOGRAFÍA ¿De qué año es la Constitución Española?';	preguntas[2,1] <- '[1] 1999';	preguntas[2,2] <- '[2] 1978';	preguntas[2,3] <- '[3] 1979';	preguntas[2,4] <- '[4] 1845';	preguntas[2,5] <- '2';
+	preguntas[3,0] <- 'CATEGORÍA: GEOGRAFÍA ¿Cuál es el río más largo de España?';	preguntas[3,1] <- '[1] El río Elbro';	preguntas[3,2] <- '[2] Opción 2';	preguntas[3,3] <- '[3] Opción 3';	preguntas[3,4] <- '[4] Opción 4';	preguntas[3,5] <- '1';
+	preguntas[4,0] <- 'CATEGORÍA: GEOGRAFÍA ¿Cuál es el océano más grande del mundo?';	preguntas[4,1] <- '[1] El océano Atlántico';	preguntas[4,2] <- '[2] El océano Pacífico';	preguntas[4,3] <- '[3] El océano Índico';	preguntas[4,4] <- '[4] El océano Ártico';	preguntas[4,5] <- '2';
+	preguntas[5,0] <- 'CATEGORÍA: INGLÉS Modals Verbs of Obligation';	preguntas[5,1] <- '[1] Mustn t';	preguntas[5,2] <- '[2] Have to';	preguntas[5,3] <- '[3] Should';	preguntas[5,4] <- '[4] Dont have to';	preguntas[5,5] <- '2';
+	preguntas[6,0] <- 'CATEGORÍA: INGLÉS Modals Verbs of Prohibition';	preguntas[6,1] <- '[1] Mustn t';	preguntas[6,2] <- '[2] Have to';	preguntas[6,3] <- '[3] Should';	preguntas[6,4] <- '[4] Dont have to';	preguntas[6,5] <- '1';
+	preguntas[7,0] <- 'CATEGORÍA: INGLÉS Modals Verbs of Recommendation, advice';	preguntas[7,1] <- '[1] Mustn t';	preguntas[7,2] <- '[2] Have to';	preguntas[7,3] <- '[3] Should';	preguntas[7,4] <- '[4] Dont have to';	preguntas[7,5] <- '3';
+	preguntas[8,0] <- 'CATEGORÍA: INGLÉS Modals Verbs (lack of necessity)';	preguntas[8,1] <- '[1] Mustn t';	preguntas[8,2] <- '[2] Have to';	preguntas[8,3] <- '[3] Should';	preguntas[8,4] <- '[4] Dont have to';	preguntas[8,5] <- '4';
+	preguntas[9,0] <- 'CATEGORÍA: INGLÉS Modals Verbs of Deduction';	preguntas[9,1] <- '[1] Mustn t';	preguntas[9,2] <- '[2] Have to';	preguntas[9,3] <- '[3] Should';	preguntas[9,4] <- '[4] Dont have to';	preguntas[9,5] <- '1';
 FinSubProceso
 
-// 3: Determina la posicion de la matriz (pregunta)
 SubProceso mostrar_pregunta_individual(preguntas Por Referencia, nro_pregunta Por Referencia)
+	// Determina la posicion de la matriz (pregunta)
 	Definir j como Entero;
 	Para j <- 0 hasta 6-2 Hacer
 		Escribir preguntas[nro_pregunta,j];
 	FinPara
 FinSubProceso
 
-// 4: Sistema de turnos para jugadores y lectura de las respuestas
+
 SubProceso preguntar(nro_pregunta, preguntas, jugador_1 Por Referencia, jugador_2 Por Referencia, puntuacion_jugador_1 Por Referencia, puntuacion_jugador_2 Por Referencia, dificultad Por Referencia)
+	// Sistema de turnos para jugadores y lectura de las respuestas
 	Definir respuesta Como Entero;
 	mostrar_pregunta_individual(preguntas, nro_pregunta);
 	
@@ -114,8 +122,21 @@ SubProceso preguntar(nro_pregunta, preguntas, jugador_1 Por Referencia, jugador_
 	Escribir "Jugador 2 respondió: ", respuesta;
 FinSubProceso
 
-// 5: Determina si la respuesta correcta
+
 SubProceso premio <- comprobar_respuesta (preguntas, nro_pregunta, respuesta, dificultad)
+	// Determina si la respuesta correcta.
+	
+	// Devuelve: 
+	// premio (Entero)
+	
+	// DIFICULTAD NORMAL:
+	// 20 (Entero) Si la respuesta es correcta
+	// 0 (Entero) Si la respuesta es incorrecta
+	
+	// DIFICULTAD DIFÍCIL:
+	// 20 (Entero) Si la respuesta es correcta
+	// -10 (Entero) Si la respuesta es correcta
+	
 	Definir premio como Entero;
 	
 	Si respuesta = ConvertirANumero(preguntas[nro_pregunta, 5]) Entonces
@@ -131,8 +152,8 @@ SubProceso premio <- comprobar_respuesta (preguntas, nro_pregunta, respuesta, di
 	// Escribir "Respuesta correcta", preguntas[nro_pregunta, 5];
 FinSubProceso
 
-// 6: Determina el ganador de la partida
 SubProceso ganador <- determinar_ganador(jugador_1 Por Valor, puntuacion_jugador_1 Por Referencia, jugador_2 Por Valor, puntuacion_jugador_2 Por Referencia, ganador Por Referencia,)
+	// Determina el ganador de la partida
     Definir resultado como cadenas;
 	Definir ganador_final como caracter;
 	resultado <- "";
@@ -149,7 +170,7 @@ SubProceso ganador <- determinar_ganador(jugador_1 Por Valor, puntuacion_jugador
 			resultado <- "E M P A T E";
         FinSi
     FinSi
-	// BUG: Cuando hay empate, da ganador al jugador_1
+
 	Escribir" ______     ______     __    __     ______    ";
 	Escribir"/\  ___\   /\  __ \   /\  -./  \   /\  ___\   ";
 	Escribir"\ \ \__ \  \ \  __ \  \ \ \-./\ \  \ \  __\   ";
