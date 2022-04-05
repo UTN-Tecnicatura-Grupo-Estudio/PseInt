@@ -8,7 +8,7 @@ Proceso Juego_Trivia_Ver_01_MainMenu
 	puntuacion_jugador_1 <- 0;
 	puntuacion_jugador_2 <- 0;
 	Definir preguntas como Caracter;
-	Dimension preguntas[5,6];  // Reemplazar 5 por la cantidad de preguntas en preguntas
+	Dimension preguntas[15,6];  // Reemplazar 5 por la cantidad de preguntas en preguntas
 	
 	Definir finalizado como Logico;
 	
@@ -39,7 +39,7 @@ Proceso Juego_Trivia_Ver_01_MainMenu
 	Definir i como Entero;
 	
 	Mientras finalizado <> Verdadero Hacer
-		Para i <- 0 hasta 5-1 Hacer // Reemplazar 5 por la cantidad de preguntas en preguntas
+		Para i <- 0 hasta 15-1 Hacer // Reemplazar 5 por la cantidad de preguntas en preguntas
 			preguntar(i, preguntas, jugador_1, jugador_2, puntuacion_jugador_1, puntuacion_jugador_2, dificultad);
 			Limpiar Pantalla;
 		FinPara
@@ -87,14 +87,20 @@ SubProceso importar_preguntas(preguntas Por Referencia)
 	preguntas[0,0] <- 'CATEGORÍA: GEOGRAFÍA ¿De qué país forma parte Hawaii?';	preguntas[0,1] <- '[1] Estados Unidos';	preguntas[0,2] <- '[2] Argentina';	preguntas[0,3] <- '[3] Brasil';	preguntas[0,4] <- '[4] Ecuador';	preguntas[0,5] <- '1';
 	preguntas[1,0] <- 'CATEGORÍA: GEOGRAFÍA ¿Cuántos estados tiene integrados Estados Unidos?';	preguntas[1,1] <- '[1] 49';	preguntas[1,2] <- '[2] 15';	preguntas[1,3] <- '[3] 50';	preguntas[1,4] <- '[4] 180';	preguntas[1,5] <- '3';
 	preguntas[2,0] <- 'CATEGORÍA: GEOGRAFÍA ¿De qué año es la Constitución Española?';	preguntas[2,1] <- '[1] 1999';	preguntas[2,2] <- '[2] 1978';	preguntas[2,3] <- '[3] 1979';	preguntas[2,4] <- '[4] 1845';	preguntas[2,5] <- '2';
-	preguntas[3,0] <- 'CATEGORÍA: GEOGRAFÍA ¿Cuál es el río más largo de España?';	preguntas[3,1] <- '[1] El río Elbro';	preguntas[3,2] <- '[2] Opción 2';	preguntas[3,3] <- '[3] Opción 3';	preguntas[3,4] <- '[4] Opción 4';	preguntas[3,5] <- '1';
+	preguntas[3,0] <- 'CATEGORÍA: GEOGRAFÍA ¿Cuál es el río más largo de España?';	preguntas[3,1] <- '[1] El río Elbro';	preguntas[3,2] <- '[2] Rio Tamesis';	preguntas[3,3] <- '[3] Rio Amazonas';	preguntas[3,4] <- '[4] Rio Grande';	preguntas[3,5] <- '1';
 	preguntas[4,0] <- 'CATEGORÍA: GEOGRAFÍA ¿Cuál es el océano más grande del mundo?';	preguntas[4,1] <- '[1] El océano Atlántico';	preguntas[4,2] <- '[2] El océano Pacífico';	preguntas[4,3] <- '[3] El océano Índico';	preguntas[4,4] <- '[4] El océano Ártico';	preguntas[4,5] <- '2';
 	preguntas[5,0] <- 'CATEGORÍA: INGLÉS Modals Verbs of Obligation';	preguntas[5,1] <- '[1] Mustn t';	preguntas[5,2] <- '[2] Have to';	preguntas[5,3] <- '[3] Should';	preguntas[5,4] <- '[4] Dont have to';	preguntas[5,5] <- '2';
 	preguntas[6,0] <- 'CATEGORÍA: INGLÉS Modals Verbs of Prohibition';	preguntas[6,1] <- '[1] Mustn t';	preguntas[6,2] <- '[2] Have to';	preguntas[6,3] <- '[3] Should';	preguntas[6,4] <- '[4] Dont have to';	preguntas[6,5] <- '1';
 	preguntas[7,0] <- 'CATEGORÍA: INGLÉS Modals Verbs of Recommendation, advice';	preguntas[7,1] <- '[1] Mustn t';	preguntas[7,2] <- '[2] Have to';	preguntas[7,3] <- '[3] Should';	preguntas[7,4] <- '[4] Dont have to';	preguntas[7,5] <- '3';
 	preguntas[8,0] <- 'CATEGORÍA: INGLÉS Modals Verbs (lack of necessity)';	preguntas[8,1] <- '[1] Mustn t';	preguntas[8,2] <- '[2] Have to';	preguntas[8,3] <- '[3] Should';	preguntas[8,4] <- '[4] Dont have to';	preguntas[8,5] <- '4';
 	preguntas[9,0] <- 'CATEGORÍA: INGLÉS Modals Verbs of Deduction';	preguntas[9,1] <- '[1] Mustn t';	preguntas[9,2] <- '[2] Have to';	preguntas[9,3] <- '[3] Should';	preguntas[9,4] <- '[4] Dont have to';	preguntas[9,5] <- '1';
+	preguntas[10,0] <- 'CATEGORÍA: PROGRAMACIÓN ¿Esta variable=true es un dato:  ?';	preguntas[10,1] <- '[1] String';	preguntas[10,2] <- '[2] Boolean';	preguntas[10,3] <- '[3] Double';	preguntas[10,4] <- '[4] integer';	preguntas[10,5] <- '2';	
+	preguntas[11,0] <- 'CATEGORÍA: PROGRAMACIÓN ¿Cuanto es el alcance de una variable dentro de una funcion?';	preguntas[11,1] <- '[1] Global';	preguntas[11,2] <- '[2] Local';	preguntas[11,3] <- '[3] Mundial';	preguntas[11,4] <- '[4] Otro';	preguntas[11,5] <- '2';	
+	preguntas[12,0] <- 'CATEGORÍA: PROGRAMACIÓN ¿esta variable esta ecrita en:  miPrimerVariable?';	preguntas[12,1] <- '[1] Kebab case';	preguntas[12,2] <- '[2] Snake case';	preguntas[12,3] <- '[3] Pascal case';	preguntas[12,4] <- '[4] Camel case';	preguntas[12,5] <- '4';	
+	preguntas[13,0] <- 'CATEGORÍA: PROGRAMACIÓN ¿Los datos Simples son:  ?';	preguntas[13,1] <- '[1] Logicos';	preguntas[13,2] <- '[2] Registros';	preguntas[13,3] <- '[3] Arreglos';	preguntas[13,4] <- '[4] Archivos';	preguntas[13,5] <- '1';	
+	preguntas[14,0] <- 'CATEGORÍA: PROGRAMACIÓN ¿Este dato de variable=10.5f es : ?';	preguntas[14,1] <- '[1] Integer';	preguntas[14,2] <- '[2] Boolean';	preguntas[14,3] <- '[3] Float';	preguntas[14,4] <- '[4] String';	preguntas[14,5] <- '3';	
 FinSubProceso
+
 
 SubProceso mostrar_pregunta_individual(preguntas Por Referencia, nro_pregunta Por Referencia)
 	// Determina la posicion de la matriz (pregunta)
