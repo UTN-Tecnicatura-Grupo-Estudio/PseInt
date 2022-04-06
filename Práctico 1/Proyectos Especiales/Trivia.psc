@@ -1,4 +1,4 @@
-Proceso Juego_Trivia_Ver_01_MainMenu
+Proceso Juego_Trivia_Ver_05_Fecha_05_22_MainMenu
 	Definir jugador_1, jugador_2 Como Caracter;
 	Definir puntuacion_jugador_1, puntuacion_jugador_2 como Entero;
 	Definir ganador como Caracter;
@@ -8,7 +8,7 @@ Proceso Juego_Trivia_Ver_01_MainMenu
 	puntuacion_jugador_1 <- 0;
 	puntuacion_jugador_2 <- 0;
 	Definir preguntas como Caracter;
-	Dimension preguntas[15,6];  // Reemplazar 5 por la cantidad de preguntas en preguntas
+	Dimension preguntas[15,6];  // Reemplazar por la cantidad de preguntas en preguntas
 	
 	Definir finalizado como Logico;
 	
@@ -31,7 +31,7 @@ Proceso Juego_Trivia_Ver_01_MainMenu
 	Leer tec;
 	
 	nombres_jugadores(jugador_1, jugador_2);
-	dif(dificultad);
+	establecer_dificultad(dificultad);
 	
 	Limpiar Pantalla;
 	importar_preguntas(preguntas);
@@ -39,7 +39,7 @@ Proceso Juego_Trivia_Ver_01_MainMenu
 	Definir i como Entero;
 	
 	Mientras finalizado <> Verdadero Hacer
-		Para i <- 0 hasta 15-1 Hacer // Reemplazar 5 por la cantidad de preguntas en preguntas
+		Para i <- 0 hasta 15-1 Hacer // Reemplazar por la cantidad de preguntas en preguntas
 			preguntar(i, preguntas, jugador_1, jugador_2, puntuacion_jugador_1, puntuacion_jugador_2, dificultad);
 			Limpiar Pantalla;
 		FinPara
@@ -50,7 +50,6 @@ Proceso Juego_Trivia_Ver_01_MainMenu
 	
 FinProceso
 
-//1: Guardar los nombres de los jugadores
 SubProceso nombres_jugadores(jugador_1 Por Referencia, jugador_2 Por Referencia)
 	Limpiar Pantalla;
     Escribir "Indique el nombre del jugador 1:";
@@ -59,21 +58,25 @@ SubProceso nombres_jugadores(jugador_1 Por Referencia, jugador_2 Por Referencia)
     Leer jugador_2;
 FinSubProceso
 
-//2: Eleccion de difilcultad
-SubProceso dif (dificultad Por Referencia)
+SubProceso establecer_dificultad (dificultad Por Referencia)
 	Limpiar Pantalla;
 	Definir opcion como entero;
-	
-	Repetir
-		Escribir "Seleccione la difcultad: normal (1) y dificil (2)";
-		Leer opcion;
+	Definir A Como Caracter;
+	a<-"";
+	Escribir "Seleccione la difcultad: normal (1) y dificil (2)";
+	Leer a;
+	Mientras a<>"1" y a<> "2" Hacer	
+		Escribir "Intente nuevamente";
+		Leer a;
 		
-		Si opcion = 1 Entonces
+		Si a="1" Entonces
 			dificultad <- 1;
-		SiNo
+		FinSi
+		Si a="2" Entonces	
 			dificultad <- 2;
 		FinSi
-	Hasta Que opcion > 0 y opcion < 3
+	FinMientras
+	
 FinSubProceso
 
 
@@ -100,7 +103,6 @@ SubProceso importar_preguntas(preguntas Por Referencia)
 	preguntas[13,0] <- 'CATEGORÍA: PROGRAMACIÓN ¿Los datos Simples son:  ?';	preguntas[13,1] <- '[1] Logicos';	preguntas[13,2] <- '[2] Registros';	preguntas[13,3] <- '[3] Arreglos';	preguntas[13,4] <- '[4] Archivos';	preguntas[13,5] <- '1';	
 	preguntas[14,0] <- 'CATEGORÍA: PROGRAMACIÓN ¿Este dato de variable=10.5f es : ?';	preguntas[14,1] <- '[1] Integer';	preguntas[14,2] <- '[2] Boolean';	preguntas[14,3] <- '[3] Float';	preguntas[14,4] <- '[4] String';	preguntas[14,5] <- '3';	
 FinSubProceso
-
 
 SubProceso mostrar_pregunta_individual(preguntas Por Referencia, nro_pregunta Por Referencia)
 	// Determina la posicion de la matriz (pregunta)
@@ -176,7 +178,7 @@ SubProceso ganador <- determinar_ganador(jugador_1 Por Valor, puntuacion_jugador
 			resultado <- "E M P A T E";
         FinSi
     FinSi
-
+	
 	Escribir" ______     ______     __    __     ______    ";
 	Escribir"/\  ___\   /\  __ \   /\  -./  \   /\  ___\   ";
 	Escribir"\ \ \__ \  \ \  __ \  \ \ \-./\ \  \ \  __\   ";
@@ -198,4 +200,6 @@ SubProceso ganador <- determinar_ganador(jugador_1 Por Valor, puntuacion_jugador
 		Escribir "Gana jugador ", ganador_final;	
 	FinSi
 	
+	
 FinSubProceso
+
