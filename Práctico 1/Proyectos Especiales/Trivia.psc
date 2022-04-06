@@ -1,5 +1,8 @@
 Proceso Juego_Trivia_Ver_05_Fecha_05_22_MainMenu
-	// El presente proceso utliza la consola para 
+	// El presente proceso utliza la consola para permitir a dos jugadores competir en un juego de trivia. Alterna entre uno y otros, mostrándoles preguntas, que deberán contestar
+	// Cada respuesta correcta suma puntos
+	// Quien obteniene más puntos al final del juego, es el ganador.
+	// Al finalizar, es muestra una pantalla con el nombre del ganador.
 	
 	Definir jugador_1, jugador_2 Como Caracter;
 	Definir puntuacion_jugador_1, puntuacion_jugador_2 como Entero;
