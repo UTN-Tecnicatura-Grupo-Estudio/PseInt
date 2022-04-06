@@ -1,4 +1,6 @@
 Proceso Juego_Trivia_Ver_05_Fecha_05_22_MainMenu
+	// El presente proceso utliza la consola para 
+	
 	Definir jugador_1, jugador_2 Como Caracter;
 	Definir puntuacion_jugador_1, puntuacion_jugador_2 como Entero;
 	Definir ganador como Caracter;
@@ -51,6 +53,7 @@ Proceso Juego_Trivia_Ver_05_Fecha_05_22_MainMenu
 FinProceso
 
 SubProceso nombres_jugadores(jugador_1 Por Referencia, jugador_2 Por Referencia)
+	// Pregunta los nombres de cada usuario y lo almacena en las variables jugador_1 y jugador_2
 	Limpiar Pantalla;
     Escribir "Indique el nombre del jugador 1:";
     Leer jugador_1;
@@ -59,6 +62,7 @@ SubProceso nombres_jugadores(jugador_1 Por Referencia, jugador_2 Por Referencia)
 FinSubProceso
 
 SubProceso establecer_dificultad (dificultad Por Referencia)
+	// Pregunta al usuario entre dos opciones para establecer qué matriz de preguntas serán mostradas durante el juego
 	Limpiar Pantalla;
 	Definir opcion como entero;
 	Definir A Como Caracter;
@@ -82,10 +86,8 @@ FinSubProceso
 
 SubProceso importar_preguntas(preguntas Por Referencia)
 	// Llenado Manual de las preguntas
-	
 	// Importar desde el Excel generador de variables
 	// https://docs.google.com/spreadsheets/d/1icO6GJE6JdbYCTM0qP9i3GnKGf0uGKFoxwS3ORUP18s
-	// OJO! Especificar numero de las respuestas
 	// La ultima columna muestra la respuesta correcta
 	preguntas[0,0] <- 'CATEGORÍA: GEOGRAFÍA ¿De qué país forma parte Hawaii?';	preguntas[0,1] <- '[1] Estados Unidos';	preguntas[0,2] <- '[2] Argentina';	preguntas[0,3] <- '[3] Brasil';	preguntas[0,4] <- '[4] Ecuador';	preguntas[0,5] <- '1';
 	preguntas[1,0] <- 'CATEGORÍA: GEOGRAFÍA ¿Cuántos estados tiene integrados Estados Unidos?';	preguntas[1,1] <- '[1] 49';	preguntas[1,2] <- '[2] 15';	preguntas[1,3] <- '[3] 50';	preguntas[1,4] <- '[4] 180';	preguntas[1,5] <- '3';
@@ -114,10 +116,11 @@ FinSubProceso
 
 
 SubProceso preguntar(nro_pregunta, preguntas, jugador_1 Por Referencia, jugador_2 Por Referencia, puntuacion_jugador_1 Por Referencia, puntuacion_jugador_2 Por Referencia, dificultad Por Referencia)
-	// Sistema de turnos para jugadores y lectura de las respuestas
+	//  Muestra el número de pregunta indicado en la variable nro_pregunta y permite a cada jugador contestar entre una de las 4 opciones disponibles.
+	// Luego de cada respuesta, la función comprobar_respuesta compara con la respuesta correcta y le suma la cantidad de puntos correspondientes al jugador
+	
 	Definir respuesta Como Entero;
 	Definir rpta Como Caracter;
-	//Se llama Subproceso mostrar_pregunta_individual 
 	mostrar_pregunta_individual(preguntas, nro_pregunta);
 	rpta<-"";
 	Escribir "Turno de ", jugador_1, " para responder la pregunta";
@@ -175,7 +178,7 @@ SubProceso premio <- comprobar_respuesta (preguntas, nro_pregunta, respuesta, di
 FinSubProceso
 
 SubProceso ganador <- determinar_ganador(jugador_1 Por Valor, puntuacion_jugador_1 Por Referencia, jugador_2 Por Valor, puntuacion_jugador_2 Por Referencia, ganador Por Referencia,)
-	// Determina el ganador de la partida
+	// Determina el ganador de la partida (quien tuvo más puntos)
     Definir resultado como cadenas;
 	Definir ganador_final como caracter;
 	resultado <- "";
