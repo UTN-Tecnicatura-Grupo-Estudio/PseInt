@@ -178,27 +178,21 @@ SubProceso ganador <- determinar_ganador(jugador_1 Por Valor, puntuacion_jugador
 			resultado <- "E M P A T E";
         FinSi
     FinSi
+
+	Escribir" ______     ______     __    __     ______    ",      ;
+	Escribir"/\  ___\   /\  __ \   /\  -./  \   /\  ___\   ",      ;
+	Escribir"\ \ \__ \  \ \  __ \  \ \ \-./\ \  \ \  __\   ",      ;
+	Escribir" \ \_____\  \ \_\ \_\  \ \_\ \ \_\  \ \_____\ ",      ;
+	Escribir"  \/_____/   \/_/\/_/   \/_/  \/_/   \/_____/ ",      ;
+	Escribir"                                              ",      ;
+	Escribir" ______     __   __   ______     ______       ",              "RESULTADOS";
+	Escribir"/\  __ \   /\ \ / /  /\  ___\   /\  == \      ",              "",jugador_1," ",puntuacion_jugador_1," pts";
+	Escribir"\ \ \/\ \  \ \ \ /   \ \  __\   \ \  __<      ",              "",jugador_2," ",puntuacion_jugador_2," pts";
+	Escribir" \ \_____\  \ \__|    \ \_____\  \ \_\ \_\    ",               "FIN DE LA PARTIDA";              
+	Escribir"  \/_____/   \/_/      \/_____/   \/_/ /_/    ",resultado;
+	Escribir "                                              --> ",ganador_final," <--";
 	
-	Escribir" ______     ______     __    __     ______    ";
-	Escribir"/\  ___\   /\  __ \   /\  -./  \   /\  ___\   ";
-	Escribir"\ \ \__ \  \ \  __ \  \ \ \-./\ \  \ \  __\   ";
-	Escribir" \ \_____\  \ \_\ \_\  \ \_\ \ \_\  \ \_____\ ";
-	Escribir"  \/_____/   \/_/\/_/   \/_/  \/_/   \/_____/ ";
-	Escribir"                                              ";
-	Escribir" ______     __   __   ______     ______       ";
-	Escribir"/\  __ \   /\ \ / /  /\  ___\   /\  == \      ";
-	Escribir"\ \ \/\ \  \ \ \ /   \ \  __\   \ \  __<      ";
-	Escribir" \ \_____\  \ \__|    \ \_____\  \ \_\ \_\    ";
-	Escribir"  \/_____/   \/_/      \/_____/   \/_/ /_/    ";
-	Escribir "";
 	
-	Escribir "RESULTADOS";
-	Escribir puntuacion_jugador_1;
-	Escribir puntuacion_jugador_2;
-	Escribir resultado;
-	Si resultado <> "E M P A T E" Entonces
-		Escribir "Gana jugador ", ganador_final;	
-	FinSi
 	
 	
 FinSubProceso
