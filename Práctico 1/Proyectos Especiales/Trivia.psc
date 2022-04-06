@@ -116,18 +116,32 @@ FinSubProceso
 SubProceso preguntar(nro_pregunta, preguntas, jugador_1 Por Referencia, jugador_2 Por Referencia, puntuacion_jugador_1 Por Referencia, puntuacion_jugador_2 Por Referencia, dificultad Por Referencia)
 	// Sistema de turnos para jugadores y lectura de las respuestas
 	Definir respuesta Como Entero;
+	Definir rpta Como Caracter;
+	//Se llama Subproceso mostrar_pregunta_individual 
 	mostrar_pregunta_individual(preguntas, nro_pregunta);
-	
+	rpta<-"";
 	Escribir "Turno de ", jugador_1, " para responder la pregunta";
-	Leer respuesta;
+	Leer rpta;
+	
+	Mientras rpta <> "1" y rpta <> "2" y rpta <> "3" y rpta <> "4" Hacer
+		Escribir "Intente nuevamente";
+		leer rpta;
+	FinMientras
+	respuesta<-ConvertirANumero(rpta);
 	puntuacion_jugador_1 <- puntuacion_jugador_1 + comprobar_respuesta(preguntas, nro_pregunta, respuesta, dificultad);
 	Limpiar Pantalla;
 	
 	mostrar_pregunta_individual(preguntas, nro_pregunta);
+	
 	Escribir "Turno de ",jugador_2 , " para responder la pregunta";
-	Leer respuesta;
+	Leer rpta;
+	Mientras rpta <> "1" y rpta <> "2" y rpta <> "3" y rpta <> "4" Hacer
+		Escribir "Intente nuevamente";
+		leer rpta;
+	FinMientras
+	respuesta<-ConvertirANumero(rpta);
 	puntuacion_jugador_2 <- puntuacion_jugador_2 + comprobar_respuesta(preguntas, nro_pregunta, respuesta, dificultad);
-	Escribir "Jugador 2 respondió: ", respuesta;
+	
 FinSubProceso
 
 
