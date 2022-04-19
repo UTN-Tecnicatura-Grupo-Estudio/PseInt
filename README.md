@@ -1,9 +1,8 @@
 ## Integrantes del grupo (por orden alfabético):
 
 - CARRIZO, Darío Walter
-- DIAZ, Verónica
 - LARA, Franco
-- LEDESMA, Silvana
+- MARISCAL, Ezequiel
 - MARTÍNEZ, Dante Nicolás
 - PIERNA, Abel
 - PUIGDÉNGOLAS, Santiago
